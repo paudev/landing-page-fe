@@ -1,0 +1,136 @@
+import { FC } from "react";
+import SVG from "./SVG";
+
+type Props = {
+  className?: string;
+};
+
+const Wave2: FC<SVG> = ({ className = "text-nectar-dark-gray" }: Props) => (
+  <svg
+    width="132"
+    height="64"
+    viewBox="0 0 132 64"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+    className={className}
+  >
+    <rect
+      y="22.4151"
+      width="4.98113"
+      height="21.1698"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="54.7925"
+      y="22.4151"
+      width="4.98113"
+      height="21.1698"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="73.4717"
+      y="24.9057"
+      width="4.98113"
+      height="16.1887"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="118.302"
+      y="24.9057"
+      width="4.98113"
+      height="16.1887"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="63.5095"
+      y="21.1698"
+      width="4.98113"
+      height="26.1509"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="127.019"
+      y="21.1698"
+      width="4.98113"
+      height="26.1509"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="8.71698"
+      y="27.3962"
+      width="4.98113"
+      height="11.2075"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="17.434"
+      y="8.71698"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="82.1887"
+      y="8.71698"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="36.1132"
+      y="8.71698"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="100.868"
+      y="14.9434"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="27.3962"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="92.1509"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="44.8302"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+    <rect
+      x="109.585"
+      y="6.22641"
+      width="4.98113"
+      height="48.566"
+      rx="2.49057"
+      fill="currentColor"
+    />
+  </svg>
+);
+
+export default Wave2;
