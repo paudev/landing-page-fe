@@ -1,7 +1,7 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 import { fantasies } from "@/lib/constant";
 
-const getHandler = (_request: NextRequest): NextResponse => {
+const getHandler = (): NextResponse => {
   return NextResponse.json(fantasies);
 };
 

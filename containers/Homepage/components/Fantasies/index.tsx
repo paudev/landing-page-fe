@@ -6,19 +6,20 @@ import { getApiRevalidate, getBaseUrl } from "@/config/serverConfig";
 import { Fantasy } from "@/models/fantasy";
 import { getPlaceholderImage } from "@/lib/image";
 
-const getFantasies = async () => {
-  const response = await fetch(`${getBaseUrl()}/api/fantasies`, {
-    next: { revalidate: getApiRevalidate() },
-  });
-  const result = await response.json();
-  return result as Fantasy[];
+type FantasyResponse = {
+  fantasies: Fantasy[];
 };
 
-const Fantasies: FC = async ({}) => {
-  /** TODO: add limit query in API */
-  const fantasies = (await getFantasies())
-    .map((c, i) => i < 3 && c)
-    .filter(Boolean) as Fantasy[];
+const getFantasies = async () => {
+  const response = await fetch(`${getBaseUrl()}/api/fantasies?limit=3`, {
+    next: { revalidate: getApiRevalidate() },
+  });
+  const { fantasies }: FantasyResponse = await response.json();
+  return fantasies || [];
+};
+
+const Fantasies: FC = async () => {
+  const fantasies = await getFantasies();
 
   const images = await Promise.all(
     fantasies.map(async (c) => {

@@ -1,6 +1,7 @@
 "use client";
 
 import { FC } from "react";
+import { useRouter } from "next/navigation";
 import Card from "@/components/Card";
 import Chip from "@/components/Chip";
 import { useToggle } from "../../hooks/useToggle";
@@ -11,6 +12,12 @@ type Props = {
 
 const CardAction: FC<Props> = ({ likeCount }) => {
   const [isToggle, toggle] = useToggle(false);
+  const router = useRouter();
+
+  const navigateToNectar = (e: React.MouseEvent) => {
+    e.stopPropagation();
+    router.push("/nectar");
+  };
 
   return (
     <Card.Action className="py-1 gap-2">
@@ -20,6 +27,7 @@ const CardAction: FC<Props> = ({ likeCount }) => {
         iconProps={{
           name: "Play",
         }}
+        onClick={navigateToNectar}
       />
       <Chip
         label={`${likeCount}`}

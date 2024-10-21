@@ -24,17 +24,20 @@ const Character: FC<Props> = ({ characters, images }) => {
         <EmojiGroup />
       </div>
       <div className="flex w-4/6 gap-x-2 justify-end">
-        {characters.map((data, idx) => (
-          <div key={`character-${idx}}`} className="w-[199px]">
-            <Card
-              title={data.name}
-              description={data.description}
-              cardImg={images[idx].src}
-              placeholderImg={images[idx].placeholder}
-              cardHeight="h-[285px]"
-            />
-          </div>
-        ))}
+        {characters.map((data, idx) => {
+          if (idx < 3)
+            return (
+              <div key={`character-${idx}}`} className="w-[199px]">
+                <Card
+                  title={data.name}
+                  description={data.description}
+                  cardImg={images[idx].src}
+                  placeholderImg={images[idx].placeholder}
+                  cardHeight="h-[285px]"
+                />
+              </div>
+            );
+        })}
       </div>
     </section>
   );

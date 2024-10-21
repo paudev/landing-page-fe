@@ -2,6 +2,7 @@ import { FC } from "react";
 import Avatar from "@/components/Avatar";
 import clsx from "clsx";
 import Image from "next/image";
+import Button from "./Button";
 
 type Props = {
   avatarImg?: string;
@@ -11,6 +12,9 @@ type Props = {
   title?: string;
   description?: string;
   children?: React.ReactNode;
+  onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+  onChatNow?: (event: React.MouseEvent<HTMLElement>) => void;
+  showFullDetails?: boolean;
 };
 
 type CardActionProps = {
@@ -31,16 +35,36 @@ const CardRoot: FC<Props> = ({
   description,
   cardHeight = "h-56",
   children,
+  onClick,
+  onChatNow,
+  showFullDetails = false,
 }) => {
   return (
-    <div className={clsx("flex-col grow rounded-lg relative", cardHeight)}>
+    <div
+      className={clsx("flex-col grow rounded-lg relative", cardHeight)}
+      onClick={onClick}
+    >
       <div className="absolute bottom-2 left-2 z-10 text-white">
         <div className="flex flex-col gap-1 py-1 px-2">
           {avatarImg && <Avatar className="mb-1" src={avatarImg} />}
-          <h3 className="m-0 p-0 font-semibold text-base line-clamp-1">
+          <h3 className={"m-0 p-0 font-semibold text-base line-clamp-1"}>
             {title}
           </h3>
-          <p className="m-0 p-0 text-sm line-clamp-2">{description}</p>
+          <p
+            className={clsx(
+              "m-0 p-0 text-sm line-clamp-2",
+              showFullDetails && "line-clamp-none"
+            )}
+          >
+            {description}
+          </p>
+          {showFullDetails && (
+            <Button
+              className="my-2 w-full"
+              label="Chat Now"
+              onClick={onChatNow}
+            />
+          )}
           {children}
         </div>
       </div>

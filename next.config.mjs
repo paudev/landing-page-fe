@@ -8,6 +8,15 @@ const nextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: '/nectar',
+        destination: 'https://nectar.ai',
+        permanent: false,
+      },
+    ]
+  },
 };
 
 export default nextConfig;

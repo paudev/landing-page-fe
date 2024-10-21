@@ -1,7 +1,10 @@
-import { FC } from "react";
+"use client";
+
+import { FC, useState } from "react";
 import Card from "@/components/Card";
 import { Character } from "@/models/character";
 import { Image } from "@/models/image";
+import { useRouter } from "next/navigation";
 
 type Props = {
   characters: Character[];
@@ -9,6 +12,19 @@ type Props = {
 };
 
 const CardGroup: FC<Props> = ({ characters, images }) => {
+  const [active, setActive] = useState<number | null>(null);
+  const router = useRouter();
+
+  const onSetShowFullDetails = (idx: number) => {
+    if (idx === active) {
+      setActive(null);
+    } else {
+      setActive(idx);
+    }
+  };
+
+  const onChatNow = () => router.push("nectar");
+
   return (
     <div className="flex flex-row justify-around gap-4 pt-6 pb-2">
       {characters?.map((data, idx) => (
@@ -19,6 +35,9 @@ const CardGroup: FC<Props> = ({ characters, images }) => {
           cardImg={images[idx].src}
           placeholderImg={images[idx].placeholder}
           cardHeight="h-[412px]"
+          showFullDetails={idx === active}
+          onClick={() => onSetShowFullDetails(idx)}
+          onChatNow={onChatNow}
         />
       ))}
     </div>
