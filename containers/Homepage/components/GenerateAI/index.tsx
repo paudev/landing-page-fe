@@ -15,7 +15,7 @@ const GenerateAI: FC = ({}) => {
         subTitle="Beautiful erotic art in seconds."
         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt."
       />
-      <div className="flex flex-row justify-between  linear-gradient-2 p-10">
+      <div className="flex flex-col justify-between  linear-gradient-2 p-10 md:flex-row">
         <TextGroup selected={selected} setSelected={setSelected} />
         <CardGroup selected={selected} />
       </div>

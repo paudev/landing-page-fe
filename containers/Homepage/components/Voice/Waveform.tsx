@@ -3,7 +3,10 @@ import { FC } from "react";
 
 const Waveform: FC = () => (
   <div className="flex flex-row gap-10 justify-between">
-    <Icon name="Wave1" />
+    <Icon
+      name="Wave1"
+      className="invisible md:visible md:text-nectar-dark-gray"
+    />
     <div className="flex flex-row gap-4">
       <Icon name="LeftQuote" />
       <h3 className="text-base line-clamp-2 text-white">
@@ -12,7 +15,10 @@ const Waveform: FC = () => (
       </h3>
       <Icon name="RightQuote" />
     </div>
-    <Icon name="Wave2" />
+    <Icon
+      name="Wave2"
+      className="invisible md:visible md:text-nectar-dark-gray"
+    />
   </div>
 );
 

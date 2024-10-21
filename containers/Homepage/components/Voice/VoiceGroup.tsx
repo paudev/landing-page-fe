@@ -8,7 +8,7 @@ import { voiceData } from "../../lib/constant";
 const VoiceGroup: FC = () => {
   const [selected, setSelected] = useState(2);
   return (
-    <div className="flex flex-row gap-8 items-center">
+    <div className="flex flex-col gap-8 items-center md:flex-row">
       {voiceData.map((v, idx) => (
         <div
           key={`voice-${idx}`}

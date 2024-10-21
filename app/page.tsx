@@ -33,7 +33,7 @@ const Home = async () => {
   );
 
   const roleImages = await Promise.all(
-    characters.map(async (c) => {
+    roleCharacters.map(async (c) => {
       const { src, placeholder } = await getPlaceholderImage(c.image_url || "");
       return { src, placeholder };
     })

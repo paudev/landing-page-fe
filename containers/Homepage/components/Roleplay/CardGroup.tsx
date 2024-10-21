@@ -26,7 +26,7 @@ const CardGroup: FC<Props> = ({ characters, images }) => {
   const onChatNow = () => router.push("nectar");
 
   return (
-    <div className="flex flex-row justify-around gap-4 pt-6 pb-2">
+    <div className="flex flex-col justify-around gap-4 pt-6 pb-2 md:flex-row">
       {characters?.map((data, idx) => (
         <Card
           key={`fantasies-${idx}}`}

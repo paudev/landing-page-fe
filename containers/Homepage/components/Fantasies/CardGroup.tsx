@@ -12,7 +12,7 @@ type Props = {
 };
 
 const CardGroup: FC<Props> = ({ fantasies, images }) => (
-  <div className="flex flex-row justify-around gap-4">
+  <div className="flex flex-col justify-around gap-4 md:flex-row">
     {fantasies.map((f, idx) => (
       <Card
         key={`fantasies-${idx}}`}

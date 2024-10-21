@@ -43,7 +43,7 @@ export default function RootLayout({
                 <Icon name="Heart2" />
               </div>
             </nav>
-            <main className="col-span-8 px-10">{children}</main>
+            <main className="col-span-8 md:px-10">{children}</main>
             <aside className="col-span-2">{/** for Custom aside */}</aside>
           </div>
         </div>
