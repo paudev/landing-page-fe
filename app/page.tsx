@@ -9,6 +9,8 @@ import { getApiRevalidate, getBaseUrl } from "@/config/serverConfig";
 import { Character as CharacterType } from "@/models/character";
 import { getPlaceholderImage } from "@/lib/image";
 
+export const dynamic = "force-dynamic";
+
 type CharacterResponse = {
   characters: CharacterType[];
   roleCharacters: CharacterType[];
