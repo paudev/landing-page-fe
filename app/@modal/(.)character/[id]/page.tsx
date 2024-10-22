@@ -1,27 +1,10 @@
 import Modal from "@/components/Modal";
-import { getBaseUrl } from "@/config/serverConfig";
 import { getPlaceholderImage } from "@/lib/image";
-import { Character as CharacterType } from "@/models/character";
 import CharacterModal from "./CharacterModal";
+import { getCharacter } from "@/containers/Character/api/getCharacter";
 
 type Props = {
   params: { id: string };
-};
-
-export type CharacterResponse = {
-  data: CharacterType;
-};
-
-export const getCharacter = async (id: string) => {
-  try {
-    const response = await fetch(`${getBaseUrl()}/api/character/${id}`, {
-      cache: "no-store",
-    });
-    const result: CharacterResponse = await response.json();
-    return result.data;
-  } catch (e) {
-    console.log(e);
-  }
 };
 
 export default async function Character({ params: { id } }: Props) {

@@ -2,21 +2,8 @@ import { FC } from "react";
 import TextSection from "../TextSection";
 import CardGroup from "./CardGroup";
 import ButtonGroup from "./ButtonGroup";
-import { getApiRevalidate, getBaseUrl } from "@/config/serverConfig";
-import { Fantasy } from "@/models/fantasy";
 import { getPlaceholderImage } from "@/lib/image";
-
-type FantasyResponse = {
-  fantasies: Fantasy[];
-};
-
-const getFantasies = async () => {
-  const response = await fetch(`${getBaseUrl()}/api/fantasies?limit=3`, {
-    next: { revalidate: getApiRevalidate() },
-  });
-  const { fantasies }: FantasyResponse = await response.json();
-  return fantasies || [];
-};
+import { getFantasies } from "../../api/getFantasies";
 
 const Fantasies: FC = async () => {
   const fantasies = await getFantasies();

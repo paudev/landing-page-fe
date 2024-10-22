@@ -1,28 +1,14 @@
 import Container from "@/components/shared/Container";
+import { getCharacters } from "@/containers/Character/api/getCharacters";
 import Character from "@/containers/Homepage/components/Character";
 import Fantasies from "@/containers/Homepage/components/Fantasies";
 import GenerateAI from "@/containers/Homepage/components/GenerateAI";
 import Navigation from "@/containers/Homepage/components/Navigation";
 import Roleplay from "@/containers/Homepage/components/Roleplay";
 import Voice from "@/containers/Homepage/components/Voice";
-import { getApiRevalidate, getBaseUrl } from "@/config/serverConfig";
-import { Character as CharacterType } from "@/models/character";
 import { getPlaceholderImage } from "@/lib/image";
 
 export const dynamic = "force-dynamic";
-
-type CharacterResponse = {
-  characters: CharacterType[];
-  roleCharacters: CharacterType[];
-};
-
-const getCharacters = async () => {
-  const response = await fetch(`${getBaseUrl()}/api/characters`, {
-    next: { revalidate: getApiRevalidate() },
-  });
-  const result: CharacterResponse = await response.json();
-  return result;
-};
 
 const Home = async () => {
   const { characters, roleCharacters } = await getCharacters();

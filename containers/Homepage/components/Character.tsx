@@ -1,13 +1,14 @@
 "use client";
 
 import { FC } from "react";
+import Link from "next/link";
 import Card from "@/components/Card";
-import EmojiGroup from "./EmojiGroup";
+
 import { Character as CharacterType } from "@/models/character";
 import { Image } from "@/models/image";
+import EmojiGroup from "./EmojiGroup";
+import useArraySplit from "@/hooks/useArraySplit";
 import useActiveCard from "../hooks/useActiveCard";
-import Link from "next/link";
-import useArraySplit from "../hooks/useArraySplit";
 
 type Props = {
   characters: CharacterType[];

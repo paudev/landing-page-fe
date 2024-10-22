@@ -1,7 +1,7 @@
 import Modal from "@/components/Modal";
 import { getPlaceholderImage } from "@/lib/image";
 import CharacterModal from "./CharacterModal";
-import { getCharacter } from "@/app/@modal/(.)character/[id]/page";
+import { getCharacter } from "@/containers/Character/api/getCharacter";
 
 type Props = {
   params: { id: string };
