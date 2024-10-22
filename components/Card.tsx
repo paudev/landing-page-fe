@@ -14,6 +14,8 @@ type Props = {
   children?: React.ReactNode;
   onClick?: (event: React.MouseEvent<HTMLElement>) => void;
   onChatNow?: (event: React.MouseEvent<HTMLElement>) => void;
+  onMouseEnter?: (event: React.MouseEvent<HTMLElement>) => void;
+  onMouseLeave?: (event: React.MouseEvent<HTMLElement>) => void;
   showFullDetails?: boolean;
 };
 
@@ -37,12 +39,16 @@ const CardRoot: FC<Props> = ({
   children,
   onClick,
   onChatNow,
+  onMouseEnter,
+  onMouseLeave,
   showFullDetails = false,
 }) => {
   return (
     <div
       className={clsx("flex-col grow rounded-lg relative", cardHeight)}
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
     >
       <div className="absolute bottom-2 left-2 z-10 text-white">
         <div className="flex flex-col gap-1 py-1 px-2">
@@ -70,7 +76,7 @@ const CardRoot: FC<Props> = ({
       </div>
       <Image
         fill
-        className="object-cover rounded-lg z-0"
+        className="object-cover rounded-lg z-0 w-full h-auto"
         alt={cardImg}
         src={cardImg}
         blurDataURL={placeholderImg}

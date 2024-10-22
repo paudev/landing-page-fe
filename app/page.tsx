@@ -17,7 +17,7 @@ type CharacterResponse = {
 };
 
 const getCharacters = async () => {
-  const response = await fetch(`${getBaseUrl()}/api/characters?limit=4`, {
+  const response = await fetch(`${getBaseUrl()}/api/characters`, {
     next: { revalidate: getApiRevalidate() },
   });
   const result: CharacterResponse = await response.json();

@@ -24,8 +24,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <html lang="en">
@@ -43,7 +45,11 @@ export default function RootLayout({
                 <Icon name="Heart2" />
               </div>
             </nav>
-            <main className="col-span-8 md:px-10">{children}</main>
+            <main className="col-span-8 md:px-10">
+              {modal}
+              {children}
+              <div id="modal-root" />
+            </main>
             <aside className="col-span-2">{/** for Custom aside */}</aside>
           </div>
         </div>
